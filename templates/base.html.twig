@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {# <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> #}
+            
+            {% block stylesheets %}
+                {{ encore_entry_link_tags('app') }}
+            {% endblock %}
+
+            {% block javascripts %}
+                {{ encore_entry_script_tags('app') }}
+            {% endblock %}
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a href="{{ path('plat_index') }}" class=" mb-lg-0 header-logo">
+                    <img class="logo_cuisine" src="{{asset('favicon.jpg')}}" alt="Logo O'Cuisine">
+                    <span class="header-logo__title mx-2">Back O'Cuisine</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse mx-5" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 link_nav">
+                        {# <li class="nav-item">
+                            <a class="nav-link active" href="{{ path('plat_index') }}">Accueil</a>
+                        </li> #}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{path('plat_index')}}"><i class="bi bi-film"></i> Plats</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{path('category_index')}}"><i class="bi bi-bookmark"></i>Catégories</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        {% block body %}{% endblock %}
+    
+    </body>
+</html>
+    
+
+ 
+     

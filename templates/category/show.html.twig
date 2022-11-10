@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ category.name }}
+{% endblock %}
+
+{% block body %}
+
+	<div class="container pt-5">
+
+		<div class="row mb-2">
+
+			<div class="col-8 mx-auto">
+
+				<h1 class="text-center my-5">{{ category.name }}</h1>
+				<a class="btn btn_return mb-4" href="{{ path('category_index') }}">Retour à la liste</a>
+				<table class="table text-center align-middle">
+					<tbody>
+						<tr class="mobile_show">
+							<th>Id</th>
+							<td>{{ category.id }}</td>
+						</tr>
+						<tr class="mobile_show">
+							<th>Name</th>
+							<td>{{ category.name }}</td>
+						</tr>
+					</tbody>
+				</table>
+
+
+				<div class="col d-flex justify-content-center">
+					<a class="btn btn_edit_show" href="{{ path('category_edit', {'id': category.id}) }}">Modifier</a>
+
+					{{ include('category/_delete_form.html.twig') }}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

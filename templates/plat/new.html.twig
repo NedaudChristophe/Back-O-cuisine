@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout d'un plat{% endblock %}
+
+{% block body %}
+<div class="container pt-5">
+    <div class="row mb-2">
+        <h1 class="text-center mt-4 mb-5">Ajout d'un plat</h1>
+        <div class="col-10 mx-auto">
+            <div class="col mb-5" >
+                
+                <a class="btn btn_return" href="{{ path('plat_index') }}">Retour à la liste</a>
+                {{ include('plat/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}
+

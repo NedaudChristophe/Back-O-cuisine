@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout d'une catégorie{% endblock %}
+
+{% block body %}
+<div class="container pt-5">
+    <div class="row mb-2">
+        <h1 class="text-center mt-4 mb-5">Ajout d'une catégorie</h1>
+        <div class="col-8 mx-auto">
+            <div class="col mb-5">
+                <a class="btn btn_return" href="{{ path('category_index') }}">Retour à la liste</a>
+                <div>
+                    {{ include('category/_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}
+

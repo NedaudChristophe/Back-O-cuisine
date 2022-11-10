@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Plat index
+{% endblock %}
+
+{% block body %}
+	<div class="container pt-5">
+		<div class="row mb-2">
+			<h1 class="text-center my-5">Liste des plats</h1>
+			<div class="col-10 mx-auto">
+				<a class="btn btn_add mb-4" href="{{ path('plat_new') }}">Ajouter un nouveau plat</a>
+				<table class="table text-center align-middle">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Nom</th>
+							<th class="elt_display-tablet">Categorie</th>
+							<th class="col-auto elt_display-desktop">Description</th>
+							<th class="col-4">actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for plat in plats %}
+							<tr>
+								<td>{{ plat.id }}</td>
+								<td>{{ plat.nom }}</td>
+								<td class="elt_display-tablet">
+									{% if plat.Category.name is defined %}
+										{{ plat.Category.name }}
+									{% endif %}
+								</td>
+								<td class="short_text elt_display-desktop">{{ plat.description }}</td>
+								<td class="button_show">
+									<a class="btn btn-sm btn_show" href="{{ path('plat_show', {'id': plat.id}) }}">Voir</a>
+									<a class="btn btn-sm btn_edit" href="{{ path('plat_edit', {'id': plat.id}) }}">Modifier</a>
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="4">Aucun plat trouvé, j'ai tout mangé</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+

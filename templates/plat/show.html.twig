@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ plat.nom }}{% endblock %}
+
+{% block body %}
+
+<div class="container pt-5">
+    <div class="row mb-2">
+        <div class="col-10 mx-auto">
+            <h1 class="text-center my-5">{{ plat.nom }}</h1>
+            <a class="btn btn_return mb-4" href="{{ path('plat_index') }}">Retour à la liste</a>
+                <table class="table text-center align-middle">
+                    <tbody>
+                        <tr class="mobile_show">
+                            <th>Id</th>
+                            <td>{{ plat.id }}</td>
+                        </tr>
+                        <tr class="mobile_show">
+                            <th>Nom</th>
+                            <td>{{ plat.nom }}</td>
+                        </tr>
+                        <tr class="mobile_show">
+                            <th>Categorie</th>
+                            <td>
+                                {% if plat.Category.name is defined %}
+                                {{ plat.Category.name }}
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr class="mobile_show">
+                            <th>Content</th>
+                            <td>{{ plat.description }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="col d-flex justify-content-center">
+                    <a class="btn btn_edit_show" href="{{ path('plat_edit', {'id': plat.id}) }}">Modifier</a>
+                    {{ include('plat/_delete_form.html.twig') }}
+                </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+                
+
+
+
